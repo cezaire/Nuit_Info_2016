@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c90a7ca9-3388-4fdb-aba7-ba4a623d0c49" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Commentaire.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Information.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Inventaire.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Item.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/CommentaireRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/InformationRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/InventaireRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/AppBundle/Repository/ItemRepository.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NInfo16.iws" />
@@ -419,7 +411,7 @@
       <workItem from="1480457930119" duration="663000" />
       <workItem from="1480459022970" duration="1820000" />
       <workItem from="1480460969956" duration="1392000" />
-      <workItem from="1480613706947" duration="10525000" />
+      <workItem from="1480613706947" duration="10491000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;init commit&quot;">
       <created>1480461122966</created>
@@ -443,17 +435,17 @@
       <updated>1480624653641</updated>
     </task>
     <task id="LOCAL-00004" summary="workspace">
-      <created>1480624709473</created>
+      <created>1480624926681</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1480624709473</updated>
+      <updated>1480624926682</updated>
     </task>
     <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22213000" />
+    <option name="totallyTimeSpent" value="22237000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="0" width="1920" height="1080" extended-state="0" />
