@@ -1,1 +1,1 @@
-@php "%~dp0/bin/composer.phar" %*
+@php "%~dp0/bin/composer.phar" %* install
