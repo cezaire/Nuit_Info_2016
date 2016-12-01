@@ -1,0 +1,49 @@
+
+
+{% block stylesheets %}
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{ asset('/CSS/profile/listColis.css') }}" >
+    <link rel="stylesheet" href="{{ asset('/CSS/profile/profile.css') }}" >
+    <link rel="stylesheet" href="{{ asset('/CSS/profile/stepBar.css') }}" >
+    <link rel="stylesheet" href="{{ asset('/CSS/profile/breadcrumb.css') }}" >
+    <script type="text/javascript" src="{{ asset('JS/Stripe/Stripe.js') }}"></script>
+    <!-- test stripe -->
+    <style type="text/css">
+        .col-centered {
+            display:inline-block;
+            float:none;
+            text-align:left;
+            margin-right:-4px;
+        }
+        .row-centered {
+            margin-left: 9px;
+            margin-right: 9px;
+        }
+    </style>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+        Stripe.setPublishableKey('pk_test_jTRZpmBEa7WZrmoS89gsNI0R');
+    </script>
+
+    <!-- fin test stripe -->
+{% endblock %}
+
+{% block title %}Profile{% endblock %}
+{% block content %}
+    <div class="row">
+            {% block breadcrumb %}
+            {% endblock %}
+
+            {% block user_left_menu %}
+
+            {% endblock %}
+
+            {% block fos_user_content %}
+
+            {% endblock fos_user_content %}
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}

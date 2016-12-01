@@ -1,0 +1,86 @@
+{% extends 'FOSUserBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="{{ asset('/CSS/profile/listColis.css') }}" >
+    <link rel="stylesheet" href="{{ asset('/CSS/profile/profile.css') }}" >
+    <link rel="stylesheet" href="{{ asset('/CSS/profile/stepBar.css') }}" >
+    <script type="text/javascript" src="{{ asset('JS/Stripe/Stripe.js') }}"></script>
+    <!-- test stripe -->
+    <style type="text/css">
+        .col-centered {
+            display:inline-block;
+            float:none;
+            text-align:left;
+            margin-right:-4px;
+        }
+        .row-centered {
+            margin-left: 9px;
+            margin-right: 9px;
+        }
+    </style>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+        Stripe.setPublishableKey('pk_test_jTRZpmBEa7WZrmoS89gsNI0R');
+    </script>
+
+    <!-- fin test stripe -->
+{% endblock %}
+{% block title %}Profile{% endblock %}
+
+{% block user_left_menu %}
+    <div class="col-lg-2">
+    {% include "FOSUserBundle:Profile:userLeftMenu.html.twig" %}
+    </div>
+{% endblock %}
+
+
+ {% block fos_user_content %}
+     <div class="col-lg-10">
+         {{ dump(json) }}
+
+
+         <!-- test stripe -->
+
+         <form action="{{ path('profilePaiement') }}" method="POST" id="payment-form">
+             <span class="payment-errors"></span>
+
+             <div class="form-row">
+                 <label>
+                     <span>Card Number</span>
+                     <input type="text" size="20" data-stripe="number" value="4242 4242 4242 4242">
+                 </label>
+             </div>
+
+             <div class="form-row">
+                 <label>
+                     <span>Expiration (MM/YY)</span>
+                     <input type="text" size="2" data-stripe="exp_month" value="12">
+                 </label>
+                 <span> / </span>
+                 <input type="text" size="2" data-stripe="exp_year" value="17">
+             </div>
+
+             <div class="form-row">
+                 <label>
+                     <span>CVC</span>
+                     <input type="text" size="4" data-stripe="cvc" value="123">
+                 </label>
+             </div>
+
+             <div class="form-row">
+                 <label>
+                     <span>Billing Zip</span>
+                     <input type="text" size="6" data-stripe="address_zip" value="1234">
+                 </label>
+             </div>
+
+             <input type="submit" class="submit" value="Submit Payment">
+         </form>
+         <!-- fin Stripe -->
+     </div>
+ {% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}

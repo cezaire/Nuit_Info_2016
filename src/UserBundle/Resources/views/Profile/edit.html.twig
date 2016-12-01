@@ -1,0 +1,26 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+    {% block breadcrumb %}
+        <div class="col-xs-12">
+            <ol class="breadcrumb" >
+                <li><a href="{{ path('axone_home') }}"><i class="glyphicon glyphicon-home"></i> Accueil</a></li>
+                <li> <a href="{{ path("fos_user_profile_show") }}">Générale</a></li>
+                <li class="active"> Modification </li>
+            </ol>
+        </div>
+    {% endblock %}
+    {% block user_left_menu %}
+        <div class="col-md-2">
+            {% include "FOSUserBundle:Profile:userLeftMenu.html.twig" %}
+        </div>
+     {% endblock %}
+
+    {% block fos_user_content %}
+    <div class="col-md-10 text-center">
+            {% include "FOSUserBundle:Profile:edit_content.html.twig" %}
+    </div>
+    {% endblock fos_user_content %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('/JS/commun/dropzone.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('/JS/commun/MyDropzone.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,17 @@
+<div class="list-group">
+
+    {%  if(app.request.pathInfo == "/profile/" or app.request.pathInfo == "/profile/edit" ) %}
+        <a href="{{ path("fos_user_profile_show") }}" class="list-group-item active" ><i class="glyphicon glyphicon-cog"></i> Générale</a>
+    {% else %}
+        <a href="{{ path("fos_user_profile_show") }}" class="list-group-item" ><i class="glyphicon glyphicon-home"></i> Générale</a>
+    {% endif %}
+
+    {%  if(app.request.pathInfo == "/profile/paiement/") %}
+        <a href="{{ path("profilePaiement") }}" class="list-group-item active" ><i class="glyphicon glyphicon-credit-card"></i> Paiement</a>
+    {% else %}
+        <a href="{{ path("profilePaiement") }}" class="list-group-item" ><i class="glyphicon glyphicon-credit-card"></i> Paiement</a>
+    {% endif %}
+
+        <a href="#" class="list-group-item" ><i class="glyphicon glyphicon-lock"></i> Sécurité</a>
+
+</div>

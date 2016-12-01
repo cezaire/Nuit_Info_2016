@@ -1,0 +1,19 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+    {% block breadcrumb %}
+    <div class="col-xs-12">
+        <ol class="breadcrumb" >
+            <li><a href="{{ path('axone_home') }}"><i class="glyphicon glyphicon-home"></i> Accueil</a></li>
+            <li class="active"> Générale</li>
+        </ol>
+    </div>
+    {% endblock %}
+    {% block user_left_menu %}
+        <div class="col-lg-2">
+            {% include "FOSUserBundle:Profile:userLeftMenu.html.twig" %}
+        </div>
+    {% endblock %}
+    {% block fos_user_content %}
+        <div class="col-lg-10 text-center" >
+        {% include "FOSUserBundle:Profile:show_content.html.twig" %}
+        </div>
+    {% endblock fos_user_content %}
