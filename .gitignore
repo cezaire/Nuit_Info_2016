@@ -15,3 +15,10 @@
 /vendor/
 /web/bundles/
 .iml
+/.idea/
+.idea/NInfo16.iml
+.idea/copyright/
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
