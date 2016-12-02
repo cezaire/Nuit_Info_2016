@@ -24,7 +24,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new UserBundle\UserBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
-            new CarteRefugeBundle\CarteRefugeBundle(),
+            new \CarteRefugeBundle\CarteRefugeBundle(),
             new \RembourseBundle\RembourseBundle()
         ];
 
