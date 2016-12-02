@@ -17,8 +17,4 @@ parameters:
     database_name: ni2016
     database_user: momo
     database_password: momo
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt

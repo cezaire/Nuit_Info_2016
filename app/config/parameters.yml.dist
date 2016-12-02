@@ -24,5 +24,4 @@ parameters:
     database_name: ni2016
     database_user: momo
     database_password: momo
-    mailer_password: null
     secret: ThisTokenIsNotSoSecretChangeIt
