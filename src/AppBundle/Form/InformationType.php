@@ -16,7 +16,7 @@ class InformationType extends AbstractType
     {
         $builder->add('titre')
             ->add('contenu')
-            ->add('utile')
+           // ->add('utile')
             ->add('ajouter',SubmitType::class,array('label' => "Créer L'information"))
            // ->add('user')
         ;

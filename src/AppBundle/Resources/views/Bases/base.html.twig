@@ -49,9 +49,9 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right" style="background-color: #1abc9c">
                     {%  if(app.request.pathInfo == "/profile/") %}
-                        <li class="active"><a href="#" > <i class="glyphicon glyphicon-cog"></i> Configuration </a></li>
+                        <li class="active"><a href="{{ path("fos_user_profile_show") }}" > <i class="glyphicon glyphicon-cog"></i> Configuration </a></li>
                     {% else %}
-                        <li><a href="#" > <i class="glyphicon glyphicon-cog"></i> Configuration </a></li>
+                        <li><a href="{{ path("fos_user_profile_show") }}" > <i class="glyphicon glyphicon-cog"></i> Configuration </a></li>
                     {% endif %}
 
                     {%  if(app.request.pathInfo == "/inventaire/") or app.request.pathInfo == "/inventaire/create/" %}

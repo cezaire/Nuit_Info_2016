@@ -20,8 +20,49 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3">
-                formulaire
+            <div class="col-md-12">
+
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">Liste des inventaires</div>
+
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Titre</th>
+                            <th>Date de création</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        {% for inventaire in inventaires %}
+                            <tr>
+                                <td>{{ inventaire.id }}</td>
+                                <td>{{ inventaire.titre }}</td>
+                                <td>{{ inventaire.dateCreation | date('j/m/Y - H:i')  }}</td>
+                                <td>
+                                    <a href="{{ path('inventaireDelele',{ 'id': inventaire.id }) }}" >
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </a>
+                                    <a href="{{ path('inventaireDetails',{ 'id': inventaire.id }) }}" >
+                                        <i class="glyphicon glyphicon-eye-open"></i>
+                                    </a>
+                                    <a href="{{ path('inventaireEdit',{ 'id': inventaire.id }) }}">
+                                        <i class="glyphicon glyphicon-pencil"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
             </div>
         </div>
     </div>

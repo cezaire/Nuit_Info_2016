@@ -19,9 +19,13 @@ class AppController extends Controller
      */
     public function indexAction(Request $request)
     {
+
+        $informationRepository=$this->getDoctrine()->getManager()->getRepository('AppBundle:Information');
+        $informations=$informationRepository->findAll();
         
-        //return $this->render('AppBundle:Default:index.html.twig');
-        return $this->render('AppBundle:Default:index.html.twig');
+        return $this->render('AppBundle:Default:index.html.twig',array(
+            "informations" => $informations
+        ));
     }
 
     /**
@@ -30,7 +34,16 @@ class AppController extends Controller
      */
     public function inventaireAction(){
 
-        return $this->render('AppBundle:Inventaire:inventaire.html.twig');
+        $security = $this->get('security.token_storage');
+        $token = $security->getToken();
+        $user = $token->getUser();
+
+        $inventaireRepository=$this->getDoctrine()->getManager()->getRepository('AppBundle:Inventaire');
+        $inventaires=$inventaireRepository->findByUser($user);
+
+        return $this->render('AppBundle:Inventaire:inventaire.html.twig',array(
+            "inventaires" => $inventaires
+        ));
     }
 
     /**
@@ -63,6 +76,53 @@ class AppController extends Controller
         return $this->render('AppBundle:Inventaire:createInventaire.html.twig',array(
             'form' => $form->createView()));
     }
+
+    /**
+     * @Route("/inventaire/edit/{id}", name="inventaireEdit")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function editInventaireAction($id,Request $request){
+        $InventaireRepository=$this->getDoctrine()->getManager()->getRepository('AppBundle:Inventaire');
+        $inventaire=$InventaireRepository->find($id);
+
+
+        $form = $this->createForm(InventaireType::class,$inventaire,array(
+            "action" => $this->generateUrl("inventaireEdit", array('id' =>$id)),
+        ));
+
+        $form->handleRequest($request);
+
+        if ($form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($inventaire);
+            $em->flush();
+            return $this->redirectToRoute('inventaire');
+        }
+
+        return $this->render('AppBundle:Inventaire:editInventaire.html.twig',array(
+            'form' => $form->createView()));
+
+    }
+
+
+    /**
+     * @Route("/inventaire/delete/{id}", name="inventaireDelele")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function deleteInventaireAction(){
+
+    }
+
+    /**
+     * @Route("/inventaire/details/{id}", name="inventaireDetails")
+     * @Security("has_role('ROLE_ADMIN')")
+     */
+    public function detailsInventaireAction(){
+
+    }
+    
+    
 
     /**
      * @Route("/information/", name="information")
@@ -111,6 +171,29 @@ class AppController extends Controller
 
         return $this->render('AppBundle:Information:createInformation.html.twig',array(
             'form' => $form->createView()));
+    }
+
+    /**
+     * @Route("/information/util/{id}", name="informationUtile")
+     */
+    public function jaimeAction(Request $request){
+
+       // $informationRepository=$this->getDoctrine()->getManager()->getRepository('AppBundle:Information');
+        //$information=$informationRepository->findById($id);
+
+        //$res=$information->getUtile()+1;
+        //$information->setUtile($res);
+
+
+        //$em = $this->getDoctrine()->getManager();
+        //$em->flush;
+     //   $informations=$informationRepository->findAll();
+
+        return $this->render('AppBundle:Default:index.html.twig'
+            //,array(
+         //   "informations" => $informations
+      //  )
+    );
     }
 }
 

@@ -51,6 +51,12 @@ class Information
      */
     private $commentaires;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="dateCreation", type="datetime")
+     */
+    private $dateCreation;
 
     /**
      * @Assert\Type(type="UserBundle\Entity\User")
@@ -63,6 +69,7 @@ class Information
     public function __construct()
     {
         $this->commentaires= new ArrayCollection();
+        $this->setDateCreation(new \DateTime());
     }
 
     /**
@@ -177,6 +184,22 @@ class Information
     public function setUser($user)
     {
         $this->user = $user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateCreation()
+    {
+        return $this->dateCreation;
+    }
+
+    /**
+     * @param mixed $dateCreation
+     */
+    public function setDateCreation($dateCreation)
+    {
+        $this->dateCreation = $dateCreation;
     }
     
     
