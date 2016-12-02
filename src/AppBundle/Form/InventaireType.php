@@ -27,7 +27,7 @@ class InventaireType extends AbstractType
             'prototype' => true,
             'by_reference' => false
                 ))
-            ->add('ajouter',SubmitType::class,array('label' => 'Créer le colis'))
+            ->add('ajouter',SubmitType::class,array('label' => "Créer l'inventaire" ))
 
         ;
 

@@ -3,7 +3,7 @@
 
         <div class="row">
             <div class="col-xs-12 text-left" >
-                Titre: {{ information.titre }}
+                Titre: {{ information.titre }} - Auteur: {{ information.user.nom }}
             </div>
         </div>
 
@@ -16,7 +16,10 @@
                             <li><span> Publié le : {{ information.dateCreation | date('j/m/Y - H:i') }} </span></li>
                             <li>|</li>
                             <li>
-                                {{ information.utile }} aimes
+                                {% if(information.utile) %}
+                                    {{ information.utile }} aimes
+                                {% endif %}
+
                             </li>
 
                         </ul>
