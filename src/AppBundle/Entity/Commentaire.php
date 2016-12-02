@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Commentaire
  *
@@ -30,7 +30,8 @@ class Commentaire
 
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Information")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Information",inversedBy="commentaires")
+     * @ORM\JoinColumn(name="information_id", referencedColumnName="id")
      */
     private $information;
 

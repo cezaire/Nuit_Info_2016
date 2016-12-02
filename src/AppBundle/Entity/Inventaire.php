@@ -61,6 +61,7 @@ class Inventaire
     
     public function __construct()
     {
+        $this->setDateCreation(new \DateTime() );
         $this->items= new ArrayCollection();
     }
 
@@ -146,6 +147,32 @@ class Inventaire
     public function getItems()
     {
         return $this->items;
+    }
+
+    /**
+     * Add item
+     *
+     * @param \AppBundle\Entity\Item $item
+     *
+     * @return Inventaire
+     */
+    public function addItem(Item $item)
+    {
+        $item->setInventaire($this);
+        $this->items->add($item);
+
+        return $this;
+    }
+
+    /**
+     * Remove item
+     *
+     * @param \AppBundle\Entity\Item $item
+     */
+    public function removeItem(Item $item)
+    {
+        $this->items->removeElement($item);
+
     }
 
     /**

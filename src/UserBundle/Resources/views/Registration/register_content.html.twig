@@ -1,7 +1,101 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register my-awesome-dropzone form-horizontal'}}) }}
+    {{ form_errors(form) }}
+
+    <fieldset>
+        <div class='form-group'>
+            <div class='col-md-6'>
+                {{ form_label(form.username, "Nom d'utilisateur", {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.username) }}
+            </div>
+        </div>
+        <div class='form-group'>
+
+
+            <div class='col-md-6'>
+                {{ form_label(form.nom, "Nom de l'organisation ", {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.nom) }}
+            </div>
+        </div>
+
+
+
+        <div class='form-group'>
+            <div class='col-md-6'>
+                {{ form_label(form.telephone, "Téléphone :", {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.telephone, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.telephone) }}
+            </div>
+            <div class='col-md-6'>
+                {{ form_label(form.email, 'profile.show.email'|trans, {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.email) }}
+            </div>
+        </div>
+        <div class='form-group'>
+            <div class='col-md-6'>
+                {{ form_label(form.pays, 'Pays'|trans, {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.pays, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.pays) }}
+            </div>
+            <div class='col-md-6'>
+                {{ form_label(form.adresse, "Adresse :", {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.adresse) }}
+            </div>
+
+        </div>
+
+        <div class='form-group'>
+            <div class='col-md-6'>
+                {{ form_label(form.dateCreation, 'Date de création'|trans, {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.dateCreation, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.dateCreation) }}
+            </div>
+
+
+        </div>
+
+        <div class='form-group'>
+
+            <div class='col-md-12'>
+                {{ form_label(form.file, "Logo :", {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.file, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.file) }}
+            </div>
+
+        </div>
+        <div class='form-group'>
+            <div class='col-md-12'>
+                {{ form_label(form.description, "Description :", {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.description) }}
+            </div>
+        </div>
+
+
+        <div class='form-group'>
+            <div class='col-md-6'>
+                {{ form_label(form.plainPassword.first, 'Mot de passe'|trans, {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.plainPassword.first, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.plainPassword.first) }}
+            </div>
+        </div>
+        <div class='form-group'>
+
+            <div class='col-md-6'>
+                {{ form_label(form.plainPassword.second, "Confirmer mot de passe :", {'label_attr': {'class': 'control-label'}  }) }}
+                {{ form_widget(form.plainPassword.second, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.plainPassword.second) }}
+            </div>
+
+        </div>
+
+    </fieldset>
+
     <div>
         <input type="submit" value="{{ 'registration.submit'|trans }}" />
     </div>

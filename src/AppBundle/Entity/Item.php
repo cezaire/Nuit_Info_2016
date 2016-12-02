@@ -54,13 +54,15 @@ class Item
     /**
      * @Assert\Type(type="AppBundle\Entity\Inventaire")
      * @Assert\Valid()
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Inventaire", inversedBy="item")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Inventaire", inversedBy="items")
      * @ORM\JoinColumn(name="inventaire_id", referencedColumnName="id")
      */
     private $inventaire;
 
+
+
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ItemCategorie")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ItemCategorie",inversedBy="items" )
      */
     private $itemCategorie;
 
@@ -197,7 +199,7 @@ class Item
     /**
      * @param mixed $inventaire
      */
-    public function setInventaire($inventaire)
+    public function setInventaire(Inventaire $inventaire=null)
     {
         $this->inventaire = $inventaire;
     }

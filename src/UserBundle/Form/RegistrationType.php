@@ -36,6 +36,7 @@ class RegistrationType extends AbstractType
                 'years' => range(date('Y')-100,date('Y')-18),
             ))
             ->add('description',TextareaType::class)
+            ->add('adresse',TextType::class)
             ->add('file',FileType::class,array(
                 'label' => 'Photo de profile',
                 'required'=> false

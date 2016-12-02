@@ -1,0 +1,45 @@
+{% extends 'AppBundle:Bases:base.html.twig' %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block title %}Profile{% endblock %}
+{% block body %}
+    <div class="container" style="color: black">
+        <div class="row" >
+            <div class="col-md-12" style="padding-top:10px ">
+                <ol class="breadcrumb">
+                    <li><a href="{{ path("homepage") }}"><i class="glyphicon glyphicon-home" ></i> Home</a></li>
+
+                    <li class="active">Formation</li>
+                </ol>
+            </div>
+            <div class="col-md-12">
+                <p><a class="btn btn-primary " href="{{ path("informationCreate") }}" role="button"> <i class="glyphicon glyphicon-plus"></i>Nouvelle information</a></p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Mes publications
+                    </div>
+                    <div class="panel-body">
+                        {% for information in informations %}
+                            {{ include('AppBundle:Block:blockInformation.html.twig', { 'information': information }) }}
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'AppBundle:Bases:base.html.twig' %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block title %}Profile{% endblock %}
+{% block body %}
+    <div class="container" style="color: black">
+        <div class="row" >
+            <div class="col-md-12" style="padding-top:10px ">
+                <ol class="breadcrumb">
+                    <li><a href="{{ path("homepage") }}"><i class="glyphicon glyphicon-home" ></i> Home</a></li>
+                    <li><a href="{{ path("inventaire") }}"></i> Inventaire</a></li>
+                    <li class="active">Création inventaire</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                filtre
+            </div>
+            <div class="col-xs-9">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        formulaire
+                    </div>
+                    <div class="panel-body">
+                        {{ form(form) }}
+                    </div>
+                    <div class="panel-footer">
+                        Panel footer
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+
+
+            var $container=$("#appbundle_inventaire_items");
+            var index=$container.find(':input').length;
+
+            /*
+             Rajoute systèmatiqueent le primier article du colis
+             */
+            addFirstItem($container);
+
+            //Listener bouton add colis
+            $('#add_item').click(function(){
+                //alert("ok");
+                addItem($container);
+                /*
+                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                 return false;*/
+            });
+
+            function addFirstItem($container){
+
+                var template = $container.attr('data-prototype')
+                                .replace(/__name__label__/g, 'Article n°' + (index+1))
+                                .replace(/__name__/g,        index)
+                        ;
+                var $prototype = $(template);
+                $container.append($prototype);
+                index++;
+            }
+
+            function addItem($container){
+
+                var template = $container.attr('data-prototype')
+                                .replace(/__name__label__/g, 'Article n°' + (index+1))
+                                .replace(/__name__/g,        index)
+                        ;
+
+                var $prototype = $(template);
+                deleteItem($prototype);
+                $container.append($prototype);
+                index++;
+            }
+
+            function deleteItem($prototype){
+                // Création du
+
+                var $deleteLink = $('<div class="col-md-6"><button type="button" class="btn btn-danger">Supprimer</button></div>');
+
+                console.log($prototype);
+                // Ajout du bouton supprimer
+                $prototype.append($deleteLink);
+
+
+                // Ajout du listener sur le clic du lien pour effectivement supprimer la catégorie
+                $deleteLink.click(function(e) {
+                    $prototype.remove();
+
+                    /*e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                     return false;*/
+                });
+
+            }
+
+
+            //Modal
+            $(".deleteColisBtn").click(function(event){
+                event.preventDefault();
+                $("#myModal").modal();
+            });
+
+        });
+
+    </script>
+
+{% endblock %}

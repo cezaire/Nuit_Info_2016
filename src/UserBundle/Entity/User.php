@@ -97,6 +97,7 @@ class User extends BaseUser
         $this->inventaire=new ArrayCollection();
         $this->information=new ArrayCollection();
         $this->setDateInscription(new \DateTime());
+        $this->setRoles(array('ROLE_ADMIN'));
     }
 
     /**

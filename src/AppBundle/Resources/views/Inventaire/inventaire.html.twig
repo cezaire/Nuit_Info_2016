@@ -1,0 +1,32 @@
+{% extends 'AppBundle:Bases:base.html.twig' %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block title %}Profile{% endblock %}
+{% block body %}
+    <div class="container" style="color: black">
+        <div class="row" >
+            <div class="col-md-12" style="padding-top:10px ">
+                <ol class="breadcrumb">
+                    <li><a href="{{ path("homepage") }}"><i class="glyphicon glyphicon-home" ></i> Home</a></li>
+
+                    <li class="active">Inventaire</li>
+                </ol>
+            </div>
+            <div class="col-md-12">
+                <p><a class="btn btn-primary " href="{{ path("inventaireCreate") }}" role="button"> <i class="glyphicon glyphicon-plus"></i>Nouvel inventaire</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                formulaire
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+{% endblock %}

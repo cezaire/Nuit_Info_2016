@@ -1,0 +1,44 @@
+{% extends 'AppBundle:Bases:base.html.twig' %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block title %}Profile{% endblock %}
+{% block body %}
+    <div class="container" style="color: black">
+        <div class="row" >
+            <div class="col-md-12" style="padding-top:10px ">
+                <ol class="breadcrumb">
+                    <li><a href="{{ path("homepage") }}"><i class="glyphicon glyphicon-home" ></i> Home</a></li>
+                    <li><a href="{{ path("information") }}"></i> Information</a></li>
+                    <li class="active">Création Information</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                filtre
+            </div>
+            <div class="col-xs-9">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        formulaire
+                    </div>
+                    <div class="panel-body">
+                        {{ form(form) }}
+                    </div>
+                    <div class="panel-footer">
+                        Panel footer
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+
+
+{% endblock %}

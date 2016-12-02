@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * ItemCategorie
  *
  * @ORM\Table(name="item_categorie")
- * @ORM\Entity(repositoryClass="UserBundle\Repository\ItemCategorieRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ItemCategorieRepository")
  */
 class ItemCategorie
 {
@@ -41,11 +41,11 @@ class ItemCategorie
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Item", mappedBy="itemCategorie")
      *
      */
-    private $item;
+    private $items;
 
     public function __construct()
     {
-        $this->item= new ArrayCollection();
+        $this->items= new ArrayCollection();
     }
 
     /**
