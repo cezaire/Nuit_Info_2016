@@ -1,0 +1,3 @@
+rembourse_homepage:
+    path:     /rembourse
+    defaults: { _controller: RembourseBundle:Default:index }

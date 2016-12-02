@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>Rembourse moi</title>
+	<link rel="shortcut icon" type="image/x-icon" href="./?getimg=favicon" />
+	<link rel="stylesheet" type="text/css" href="{{ asset('/bundles/rembourse/css/bootstrap.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('/bundles/rembourse/css/style.css') }}">
+	<script src="{{ asset('/bundles/rembourse/js/script.js') }}"></script>
+	<style type="text/css"></style> 
+</head>
+<body>
+	<h2>Les bons comptes font les bons amis</h2>
+	<hr/>
+	<table class="table_comptes">
+		<tr>
+			<td colspan="2">
+				<input type="text" id="ajout_participant" placeholder="Nouveau participant">
+			</td>
+			<td>
+				<button type="button" class="btn btn-primary" onclick="ajoutParticipant()">Ajouter</button>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="text" id="ajout_paiement" placeholder="Nouveau paiement">
+			</td>
+			<td>
+				<select class="hidden_start" id="select_participant"></select>
+			</td>
+			<td>
+				<button type="button" class="btn btn-primary" onclick="ajoutPaiement()">Ajouter</button>
+			</td>
+		</tr>
+	</table>
+	<div id="recap">
+		<h4>Liste des participants</h4>
+		<hr/>
+		<table id="table_participants" class="hidden_start table table-striped table_comptes">
+			<thead><tr><th>Participant</th><th>Supprimer</th></tr></thead>
+			<tbody id="liste_participants"></tbody>
+		</table>
+		<h4>Paiements effectués</h4>
+		<hr/>
+		<table id="table_paiements" class="hidden_start table table-striped table_comptes">
+			<thead><tr><th>Montant</th><th>Participant</th><th>Supprimer</th></tr></thead>
+			<tbody id="liste_paiements"></tbody>
+		</table>
+		<h4>Récapitulatif</h4>
+		<hr/>
+		<table id="table_recap" class="hidden_start table table-striped table_comptes">
+			<thead><tr><th>Participant</th><th>Total payé</th><th>A rembourser</th></tr></thead>
+			<tbody id="liste_recap"></tbody>
+		</table>
+	</div>
+</body>
+</html>

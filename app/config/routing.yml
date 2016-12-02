@@ -1,3 +1,6 @@
+carte_refuge:
+    resource: "@CarteRefugeBundle/Resources/config/routing.yml"
+
 user:
     resource: "@UserBundle/Controller/"
     type:     annotation
@@ -10,3 +13,12 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+site_public_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:App:index }
+
+rembourse:
+    path:     /rembourse
+    defaults: { _controller: RembourseBundle:Default:index}
+
