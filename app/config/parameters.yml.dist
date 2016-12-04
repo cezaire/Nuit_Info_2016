@@ -12,9 +12,9 @@
 
 
 parameters:
-    database_host: 88.184.238.173
-    database_port: 3306
+    database_host: localhost
+    database_port: ~
     database_name: ni2016
-    database_user: momo
-    database_password: momo
+    database_user: root
+    database_password: root
     secret: ThisTokenIsNotSoSecretChangeIt
